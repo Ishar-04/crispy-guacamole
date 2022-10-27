@@ -1,0 +1,150 @@
+PROGRAM:
+import java.util.Scanner;
+import java.io.*;
+import java.util.Scanner;
+class Employee
+{
+    String emp_id,emp_name,address,mail_id;
+    long mob_no;
+    double bp,hra,da,pf,cf,gp,np;
+    Scanner sc=new Scanner(System.in);
+    void getdata()
+    {
+System.out.print("\nEnter Employee id:");
+emp_id=sc.nextLine();
+System.out.print("Enter Employee name:");
+emp_name=sc.nextLine();
+System.out.print("Enter Employee's Email id:");
+mail_id=sc.nextLine();
+System.out.print("Enter Employee Address:");
+        address=sc.nextLine();
+System.out.print("Enter Employee's Phone number:");
+mob_no=sc.nextInt();
+    } 
+
+    void display()
+    {
+System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+System.out.println("DISPLAYING DETAILS");
+System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+System.out.println("Name: "+emp_name);
+System.out.println("ID: "+emp_id);
+System.out.println("E-Mail ID: "+mail_id);
+System.out.println("Mobile: "+mob_no);
+System.out.println("Address: "+address);
+    }
+    void calcualte()
+    {
+        da=(bp*0.97);
+hra=(0.10*bp);
+        pf=(0.12*bp);
+cf=(0.1*bp);
+gp=(bp+da+hra);
+        np=(gp-pf-cf);
+    }
+    void payslip()
+    {
+System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+System.out.println("PAY SLIP");
+System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+System.out.println("Basic Pay :"+bp);
+System.out.println("Dearness Allowance :"+da);
+System.out.println("House Rent Allowance :"+hra);
+System.out.println("PF :"+pf);
+System.out.println("Staff Club Funds :"+cf);
+System.out.println("Gross Pay :"+gp);
+System.out.println("Net Pay :"+np);
+    }
+
+}
+class Programmer extends Employee
+{
+    void get_bp()
+    {   
+System.out.print("Enter the basic pay: ");
+        bp=sc.nextDouble();
+    }
+
+}
+class Assistant_Professor extends Employee
+{
+    void get_bp()
+    {   
+System.out.print("Enter the basic pay: ");
+        bp=sc.nextDouble();
+    }
+
+}
+class Associate_Professor extends Employee
+{
+    void get_bp()
+    {   
+System.out.print("Enter the basic pay: ");
+        bp=sc.nextDouble();
+    }
+}
+class Professor extends Employee
+{
+    void get_bp()
+    {   
+System.out.print("Enter the basic pay: ");
+        bp=sc.nextDouble();
+    }
+}
+public class EmpMain
+{
+    public static void main(String args[])
+    {
+        int des;
+        Scanner d=new Scanner(System.in);
+        Programmer pr=new Programmer();
+Assistant_Professor ap=new Assistant_Professor();
+Associate_Professor asp=new Associate_Professor();
+        Professor p=new Professor();
+System.out.println("EMPLOYEE PAY SLIP");
+System.out.println(".........................");
+        do
+        {
+System.out.println("\nDESIGNATIONS\n1.Programmer\n2.Assistant Professor\n3.Associate Professor\n4.Professor\n5.Exit");
+System.out.print("Enter Designation:");
+        des=d.nextInt();
+        switch(des)
+        {
+            case 1:
+System.out.println("\nPROGRAMMER");
+pr.getdata();
+pr.get_bp();
+pr.display();
+pr.calcualte();
+pr.payslip();
+                break;
+            case 2:
+System.out.println("\nASSISTANT PROFESSOR");
+ap.getdata();
+ap.get_bp();
+ap.display();
+ap.calcualte();
+ap.payslip();
+                break;
+            case 3:
+System.out.println("\nASSOCIATE PROFESSOR");
+asp.getdata();
+asp.get_bp();
+asp.display();
+asp.calcualte();
+asp.payslip();
+                break;
+            case 4:
+System.out.println("\n1PROFESSOR");
+p.getdata();
+p.get_bp();
+p.display();
+p.calcualte();
+p.payslip();
+                break;
+            case 5:
+System.out.println("Thank you!");
+        }
+}while(des!=5);  }  }
+
+
